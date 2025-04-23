@@ -6,23 +6,7 @@ def extracao():
     cur = conn.cursor()
 
     query = """
-    select
-        se.cod_produto,
-        p.nm_produto,
-        e.descr_estoque,
-        cc.descr_cc,
-        se.data_saida,
-        se.custo_unitario,
-        se.qtd
-    from sigh.saidas_estoques se 
-    inner join sigh.produtos p 
-        on p.id_produto = se.cod_produto
-    inner join sigh.estoques e 
-        on e.id_estoque = se.cod_estoque
-    inner join sigh.centros_custos cc 
-        on cc.id_centro_custo = se.cod_centro_custo
-    where data_saida between '2023-01-01' and '2023-12-31'
-    order by data_saida asc;
+    
     """
     
     cur.execute(query)
